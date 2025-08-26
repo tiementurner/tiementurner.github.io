@@ -1,0 +1,78 @@
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mijn Projecten • Portfolio</title>
+  <meta name="description" content="Showcase van mijn GitHub repositories met screenshots en uitleg." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styling.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="titlewrap">
+        <span class="tag">GitHub Portfolio</span>
+        <h1>Mijn Projecten</h1>
+      </div>
+      <p class="lead">Een selectie van repositories en experimenten. Klik door voor de code of een live demo. Pas de gegevens onderaan in het script aan om je eigen projecten te tonen.</p>
+    </header>
+
+    <main class="grid" id="grid"></main>
+
+    <footer>
+      Gemaakt met GitHub Pages.
+    </footer>
+  </div>
+
+  <div class="ghmark">
+    <a href="https://github.com/" target="_blank" rel="noreferrer">
+      <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8a8 8 0 005.47 7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.01.08-2.1 0 0 .67-.21 2.2.82a7.68 7.68 0 012 0c1.53-1.03 2.2-.82 2.2-.82.44 1.09.16 1.9.08 2.1.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+      <span>Volg mij op GitHub</span>
+    </a>
+  </div>
+
+  
+  <script>
+
+
+    // === 2) Optioneel: standaardafbeelding als image ontbreekt ===
+    const PLACEHOLDER = "data:image/svg+xml;utf8," + encodeURIComponent(`
+      <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 675'>
+        <defs>
+          <linearGradient id='g' x1='0' x2='1'>
+            <stop offset='0' stop-color='%237c9cff'/>
+            <stop offset='1' stop-color='%239f7cff'/>
+          </linearGradient>
+        </defs>
+        <rect width='1200' height='675' fill='url(#g)'/>
+        <g font-family='Inter, Arial' font-size='54' fill='white'>
+          <text x='60' y='110' opacity='.9'>Project Screenshot</text>
+          <text x='60' y='180' opacity='.8'>Voeg je eigen afbeelding toe</text>
+        </g>
+      </svg>
+    `);
+
+    // === 3) Rendering & filters ===
+    const $grid = document.getElementById('grid');
+    const $q = document.getElementById('q');
+    const $tag = document.getElementById('tag');
+    const $reset = document.getElementById('reset');
+  
+    function render(){
+      const query = $q.value.trim();
+      const tag = $tag.value;
+      const filtered = PROJECTS.filter(p => matchesQuery(p, query) && matchesTag(p, tag));
+      if(!filtered.length){
+        $grid.innerHTML = `<div class="card" style="padding:16px"><p class="desc">Geen projecten gevonden. Pas je zoekopdracht of filter aan.</p></div>`;
+        return;
+      }
+      $grid.innerHTML = filtered.map(cardTemplate).join('');
+    }
+
+  render();
+  </script>
+  <script src="projects.js"></script>
+</body>
+</html>
