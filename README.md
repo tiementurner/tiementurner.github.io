@@ -1,4 +1,3 @@
-<!doctype html>
 <html lang="nl">
 <head>
   <meta charset="utf-8" />
@@ -90,26 +89,12 @@
         <h1>Mijn Projecten</h1>
       </div>
       <p class="lead">Een selectie van repositories en experimenten. Klik door voor de code of een live demo. Pas de gegevens onderaan in het script aan om je eigen projecten te tonen.</p>
-
-      <div class="controls">
-        <label class="control" title="Zoek op projectnaam of beschrijving">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/></svg>
-          <input id="q" placeholder="Zoeken… (bijv. react, api)" />
-        </label>
-        <label class="control" title="Filter op tag/technologie">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 5h18M6 12h12M10 19h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-          <select id="tag">
-            <option value="">Alle tags</option>
-          </select>
-        </label>
-        <button id="reset" class="btn" type="button">Reset</button>
-      </div>
     </header>
 
     <main class="grid" id="grid"></main>
 
     <footer>
-      Gemaakt met ❤ en GitHub Pages. Pas dit bestand aan om je eigen projecten te beheren.
+      Gemaakt met GitHub Pages.
     </footer>
   </div>
 
@@ -120,37 +105,9 @@
     </a>
   </div>
 
+  
   <script>
-    // === 1) Vul je projecten hieronder in ===
-    // - image: publiek pad of URL (bijv. ./assets/todo.png of https://...)
-    // - tags: vrije trefwoorden (gebruik je tech stack)
-    // - repo/demo: laat leeg als je die link niet hebt
-    const PROJECTS = [
-      {
-        name: "Todo App",
-        description: "Eenvoudige todo-app met lokale opslag en drag & drop.",
-        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop",
-        tags: ["javascript", "frontend", "vanilla"],
-        repo: "https://github.com/gebruikersnaam/todo-app",
-        demo: "https://gebruikersnaam.github.io/todo-app/"
-      },
-      {
-        name: "Weather API",
-        description: "Kleine Node.js API die weerdata doorstuurt met caching.",
-        image: "https://images.unsplash.com/photo-1502303756783-0be1d6c3a7d6?q=80&w=1200&auto=format&fit=crop",
-        tags: ["node", "api", "backend"],
-        repo: "https://github.com/gebruikersnaam/weather-api",
-        demo: ""
-      },
-      {
-        name: "Portfolio Site",
-        description: "Deze site! Statische pagina gehost op GitHub Pages.",
-        image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop",
-        tags: ["html", "css", "gh-pages"],
-        repo: "https://github.com/gebruikersnaam/gebruikersnaam.github.io",
-        demo: "https://gebruikersnaam.github.io/"
-      },
-    ];
+
 
     // === 2) Optioneel: standaardafbeelding als image ontbreekt ===
     const PLACEHOLDER = "data:image/svg+xml;utf8," + encodeURIComponent(`
@@ -174,65 +131,8 @@
     const $q = document.getElementById('q');
     const $tag = document.getElementById('tag');
     const $reset = document.getElementById('reset');
-
-    function uniqueTags(list){
-      const set = new Set();
-      list.forEach(p => (p.tags||[]).forEach(t => set.add(t)));
-      return Array.from(set).sort((a,b)=>a.localeCompare(b));
-    }
-
-    function matchesQuery(p, query){
-      if(!query) return true;
-      const q = query.toLowerCase();
-      return [p.name, p.description, ...(p.tags||[])].filter(Boolean).some(x => x.toLowerCase().includes(q));
-    }
-
-    function matchesTag(p, tag){
-      if(!tag) return true;
-      return (p.tags||[]).includes(tag);
-    }
-
-    function cardTemplate(p){
-      const img = p.image || PLACEHOLDER;
-      const tags = (p.tags||[]).map(t=>`<span class="chip">${t}</span>`).join("");
-      const repoBtn = p.repo ? `<a class="link secondary" href="${p.repo}" target="_blank" rel="noreferrer">Code</a>` : "";
-      const demoBtn = p.demo ? `<a class="link primary" href="${p.demo}" target="_blank" rel="noreferrer">Live demo</a>` : "";
-      return `
-        <article class="card" aria-label="${p.name}">
-          <img class="thumb" src="${img}" alt="Screenshot van ${p.name}">
-          <div class="content">
-            <div class="name">${p.name}</div>
-            <p class="desc">${p.description || ''}</p>
-            <div class="chips">${tags}</div>
-            <div class="actions">${repoBtn}${demoBtn}</div>
-          </div>
-        </article>
-      `;
-    }
-
-    function render(){
-      const query = $q.value.trim();
-      const tag = $tag.value;
-      const filtered = PROJECTS.filter(p => matchesQuery(p, query) && matchesTag(p, tag));
-      if(!filtered.length){
-        $grid.innerHTML = `<div class="card" style="padding:16px"><p class="desc">Geen projecten gevonden. Pas je zoekopdracht of filter aan.</p></div>`;
-        return;
-      }
-      $grid.innerHTML = filtered.map(cardTemplate).join('');
-    }
-
-    function initFilters(){
-      const tags = uniqueTags(PROJECTS);
-      $tag.innerHTML = `<option value="">Alle tags</option>` + tags.map(t=>`<option value="${t}">${t}</option>`).join('');
-    }
-
-    $q.addEventListener('input', render);
-    $tag.addEventListener('change', render);
-    $reset.addEventListener('click', ()=>{ $q.value=''; $tag.value=''; render(); });
-
-    // Init
-    initFilters();
-    render();
+  
   </script>
+  <script src="/projects.js"></script>
 </body>
 </html>
