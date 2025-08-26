@@ -7,79 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #0b1020;
-      --card: #11162a;
-      --muted: #b4bdc8;
-      --text: #e6edf3;
-      --brand: #7c9cff;
-      --brand-2: #9f7cff;
-      --ring: #4450ff55;
-      --shadow: 0 10px 25px rgba(0,0,0,.25);
-      --radius: 18px;
-    }
-    @media (prefers-color-scheme: light) {
-      :root{
-        --bg: #f6f7fb; --card: #ffffff; --muted:#5b6876; --text:#0d1321; --brand:#415aff; --brand-2:#7a3dff; --ring:#4450ff33;
-      }
-    }
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
-    body {
-      margin: 0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
-      background: radial-gradient(1200px 800px at 10% -10%, #1b2244 0%, transparent 60%),
-                  radial-gradient(900px 700px at 110% 10%, #2a1a52 0%, transparent 60%),
-                  var(--bg);
-      color: var(--text);
-      line-height: 1.55;
-    }
-    a { color: inherit; text-decoration: none; }
-    .container { max-width: 1150px; margin: 0 auto; padding: 28px 20px 60px; }
-
-    /* Header */
-    header { display: grid; gap: 16px; align-items: start; margin-bottom: 22px; }
-    .titlewrap { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
-    h1 { margin: 0; font-size: clamp(28px, 4vw, 42px); letter-spacing: -0.02em; }
-    .tag { padding: 6px 10px; border-radius: 999px; font-weight: 600; font-size: 12px; background: linear-gradient(90deg, var(--brand), var(--brand-2)); color: white; box-shadow: var(--shadow); }
-    p.lead { margin: 6px 0 0; color: var(--muted); max-width: 70ch; }
-
-    /* Controls */
-    .controls { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
-    .control { background: var(--card); border: 1px solid #ffffff10; padding: 10px 12px; border-radius: 12px; box-shadow: var(--shadow); display: flex; align-items: center; gap: 8px; }
-    .control input, .control select { background: transparent; border: 0; outline: none; color: var(--text); font: inherit; min-width: 160px; }
-    .control input::placeholder { color: var(--muted); }
-    .btn { cursor: pointer; border: 1px solid #ffffff15; background: linear-gradient(180deg, #ffffff10, #00000005); padding: 10px 14px; border-radius: 12px; font-weight: 600; transition: transform .06s ease, box-shadow .2s ease; }
-    .btn:hover { transform: translateY(-1px); box-shadow: 0 10px 20px #00000025; }
-
-    /* Grid */
-    .grid { display: grid; gap: 16px; grid-template-columns: repeat(1, minmax(0, 1fr)); margin-top: 18px; }
-    @media (min-width: 640px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-    @media (min-width: 980px) { .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-
-    /* Card */
-    .card { position: relative; background: linear-gradient(180deg, #ffffff08, #00000010), var(--card); border: 1px solid #ffffff12; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); display: flex; flex-direction: column; }
-    .thumb { aspect-ratio: 16/9; width: 100%; object-fit: cover; background: #0d1321; }
-    .content { padding: 14px; display: grid; gap: 10px; flex: 1; }
-    .name { font-weight: 700; letter-spacing: -0.01em; font-size: 18px; }
-    .desc { color: var(--muted); font-size: 14px; }
-    .chips { display: flex; gap: 8px; flex-wrap: wrap; }
-    .chip { font-size: 12px; padding: 6px 10px; border-radius: 999px; background: #ffffff10; border: 1px solid #ffffff12; }
-
-    .actions { display: flex; gap: 8px; margin-top: auto; }
-    .link { flex: 1; text-align: center; border-radius: 10px; padding: 10px 12px; border: 1px solid #ffffff18; font-weight: 600; }
-    .link.primary { background: linear-gradient(90deg, var(--brand), var(--brand-2)); color: white; border: none; }
-    .link.secondary { background: #ffffff0d; }
-
-    /* Footer */
-    footer { margin-top: 30px; color: var(--muted); font-size: 13px; text-align: center; }
-
-    /* Tiny GitHub mark */
-    .ghmark { position: fixed; right: 14px; bottom: 14px; opacity: .8; }
-    .ghmark a { display: inline-flex; align-items: center; gap: 8px; background: var(--card); padding: 8px 10px; border: 1px solid #ffffff15; border-radius: 12px; }
-    .ghmark svg { width: 18px; height: 18px; }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="container">
@@ -133,6 +61,6 @@
     const $reset = document.getElementById('reset');
   
   </script>
-  <script src="/projects.js"></script>
+  <script src="projects.js"></script>
 </body>
 </html>
