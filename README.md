@@ -60,6 +60,18 @@
     const $tag = document.getElementById('tag');
     const $reset = document.getElementById('reset');
   
+    function render(){
+      const query = $q.value.trim();
+      const tag = $tag.value;
+      const filtered = PROJECTS.filter(p => matchesQuery(p, query) && matchesTag(p, tag));
+      if(!filtered.length){
+        $grid.innerHTML = `<div class="card" style="padding:16px"><p class="desc">Geen projecten gevonden. Pas je zoekopdracht of filter aan.</p></div>`;
+        return;
+      }
+      $grid.innerHTML = filtered.map(cardTemplate).join('');
+    }
+
+  render();
   </script>
   <script src="projects.js"></script>
 </body>
