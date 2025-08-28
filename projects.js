@@ -1,18 +1,18 @@
 const PROJECTS = [
   {
-    name: "Todo App",
-    description: "Eenvoudige todo-app met lokale opslag en drag & drop.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop",
-    tags: ["javascript", "frontend", "vanilla"],
-    repo: "https://github.com/tiementurner/Pong_SinglePageApp",
-    demo: "https://gebruikersnaam.github.io/pong/"
+    name: "Cub3D Raycaster",
+    description: "A raycasting project in C using Minilibx/SDL2, based on Wolfenstein 3D. Developed as part of the 42 curriculum. Features texture mapping, sprite rendering, and basic game mechanics.",
+    image: "Screenshot 2025-08-28 130514.png",
+    tags: ["C", "Raycasting", "SDL2", "GameDev", "42", "Graphics", "Algorithms", "Webassembly"],
+    repo: "https://github.com/tiementurner/cub3d",
+    demo: "https://tiementurner.github.io/cub3d/cub3D.html"
   },
   {
-    name: "Weather API",
-    description: "Kleine Node.js API die weerdata doorstuurt met caching.",
+    name: "Pong Multiplayer SPA",
+    description: "",
     image: "https://images.unsplash.com/photo-1502303756783-0be1d6c3a7d6?q=80&w=1200&auto=format&fit=crop",
-    tags: ["node", "api", "backend"],
-    repo: "https://github.com/gebruikersnaam/weather-api",
+    tags: ["NestJS", "React", "RESTful API", "backend", "frontend", "websockets", "SPA", "game", "PostgreSQL"],
+    repo: "https://github.com/tiementurner/Pong_SinglePageApp",
     demo: ""
   },
   {
@@ -29,7 +29,7 @@ function cardTemplate(p){
   const img = p.image || PLACEHOLDER;
   const tags = (p.tags||[]).map(t=>`<span class="chip">${t}</span>`).join("");
   const repoBtn = p.repo ? `<a class="link secondary" href="${p.repo}" target="_blank" rel="noreferrer">Code</a>` : "";
-  const InfoBtn = p.info ? `<a class="link primary" href="${p.info}" target="_blank" rel="noreferrer">Info</a>` : "";
+  const DemoBtn = p.demo ? `<a class="link primary" href="${p.demo}" target="_blank" rel="noreferrer">Demo</a>` : "";
   return `
     <article class="card" aria-label="${p.name}">
       <img class="thumb" src="${img}" alt="Screenshot van ${p.name}">
@@ -37,7 +37,7 @@ function cardTemplate(p){
         <div class="name">${p.name}</div>
         <p class="desc">${p.description || ''}</p>
         <div class="chips">${tags}</div>
-        <div class="actions">${repoBtn}${demoBtn}</div>
+        <div class="actions">${repoBtn}${DemoBtn}</div>
       </div>
     </article>
   `;
