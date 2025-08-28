@@ -10,7 +10,7 @@ const PROJECTS = [
   {
     name: "Pong Multiplayer SPA",
     description: "",
-    image: "https://images.unsplash.com/photo-1502303756783-0be1d6c3a7d6?q=80&w=1200&auto=format&fit=crop",
+    image: "",
     tags: ["NestJS", "React", "RESTful API", "backend", "frontend", "websockets", "SPA", "game", "PostgreSQL"],
     repo: "https://github.com/tiementurner/Pong_SinglePageApp",
     demo: ""
@@ -18,7 +18,7 @@ const PROJECTS = [
   {
     name: "Minishell",
     description: "",
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop",
+    image: "",
     tags: ["C", "Unix", "Shell", "42", "System Programming"],
     repo: "https://github.com/tiementurner/Minishell_42",
     demo: "https://gebruikersnaam.github.io/"
