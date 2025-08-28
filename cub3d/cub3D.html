@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>cub3D Demo</title>
+    <link rel="stylesheet" href="cub3D.css">
+</head>
+
+
+<body>
+    <div class="spinner" id="spinner"></div>
+    <div class="emscripten" id="status">Downloading...</div>
+    <div class="emscripten">
+        <span id="Title" class="big-title">cub3D Demo</span>
+        <progress hidden id="progress" max="100" value="0"></progress>
+    </div>
+    <div class="input-container" style="text-align: center;">
+        <p class="writer-message">use WASD to move, left and right arrow to rotate</p>
+    </div>
+
+    <div class="emscripten_border">
+        <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" tabindex="-1"></canvas>
+    </div>
+
+    <div class="input-container" style="text-align: center;">
+        <p class="writer-message">This is a demonstration of my raycasting engine written in C. Digital differential alasysis (DDA) is used to calculate the distance to walls and sprites.
+        The map is a grid of 0's and 1's loaded in from a file, a 0 being an empty space and a 1 being a wall. The walls and sprites are loaded in by the user with each face(north,south etc) being from a different png file.
+        I had to use a primitive library provided by Codam called miniLibx(https://github.com/42paris/minilibx-linux) in order to render the graphics (to make it a bit harder I guess). However, to create this demo I had to compile all my files with emscripten into a WASM file 
+        and emscripten didn't support minilibX so I had to convert everything to the SDL library which turned out to be the better option anyway. <br> <br>
+        These were the only allowed functions:<br>
+        • open, close, read, write, printf, malloc, free, perror, strerror, exit, gettimeofday.<br>
+        • All functions of the math library<br>
+        • All functions of the MinilibX library.<br>
+        </p>
+    </div>
+    <script src="status.js"></script>
+    <script async src="cub3D.js"></script>
+</body>
+
+
+</html>

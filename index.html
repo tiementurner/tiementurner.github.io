@@ -33,46 +33,6 @@
     </a>
   </div>
 
-  
-  <script>
-
-
-    // === 2) Optioneel: standaardafbeelding als image ontbreekt ===
-    const PLACEHOLDER = "data:image/svg+xml;utf8," + encodeURIComponent(`
-      <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 675'>
-        <defs>
-          <linearGradient id='g' x1='0' x2='1'>
-            <stop offset='0' stop-color='%237c9cff'/>
-            <stop offset='1' stop-color='%239f7cff'/>
-          </linearGradient>
-        </defs>
-        <rect width='1200' height='675' fill='url(#g)'/>
-        <g font-family='Inter, Arial' font-size='54' fill='white'>
-          <text x='60' y='110' opacity='.9'>Project Screenshot</text>
-          <text x='60' y='180' opacity='.8'>Voeg je eigen afbeelding toe</text>
-        </g>
-      </svg>
-    `);
-
-    // === 3) Rendering & filters ===
-    const $grid = document.getElementById('grid');
-    const $q = document.getElementById('q');
-    const $tag = document.getElementById('tag');
-    const $reset = document.getElementById('reset');
-  
-    function render(){
-      const query = $q.value.trim();
-      const tag = $tag.value;
-      const filtered = PROJECTS.filter(p => matchesQuery(p, query) && matchesTag(p, tag));
-      if(!filtered.length){
-        $grid.innerHTML = `<div class="card" style="padding:16px"><p class="desc">Geen projecten gevonden. Pas je zoekopdracht of filter aan.</p></div>`;
-        return;
-      }
-      $grid.innerHTML = filtered.map(cardTemplate).join('');
-    }
-
-  render();
-  </script>
   <script src="projects.js"></script>
 </body>
 </html>
