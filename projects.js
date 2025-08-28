@@ -16,11 +16,11 @@ const PROJECTS = [
     demo: ""
   },
   {
-    name: "Portfolio Site",
-    description: "Deze site! Statische pagina gehost op GitHub Pages.",
+    name: "Minishell",
+    description: "",
     image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop",
-    tags: ["html", "css", "gh-pages"],
-    repo: "https://github.com/gebruikersnaam/gebruikersnaam.github.io",
+    tags: ["C", "Unix", "Shell", "42", "System Programming"],
+    repo: "https://github.com/tiementurner/Minishell_42",
     demo: "https://gebruikersnaam.github.io/"
   },
 ];
